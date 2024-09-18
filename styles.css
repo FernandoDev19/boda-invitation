@@ -1,0 +1,109 @@
+:root{
+    --text-color-primary: #533719;
+    --text-color-secondary: #887840;
+    --bg-primary: #f3e2cd;
+    --bg-secondary: #e6e1d1;
+    --bg-body: #f5f2ed;
+}
+
+body{
+    font-family: "Arial", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-body) !important;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor{
+    max-width: 700px;
+}
+
+.dancing-script{
+    font-family: "Dancing Script", cursive !important;
+}
+
+.text-local-primary{
+    color: var(--text-color-primary) !important;
+}
+
+.text-local-secondary{
+    color: var(--text-color-secondary) !important;
+}
+
+.bg-local-primary{
+    background-color: var(--bg-primary) !important;
+}
+
+.bg-local-secondary{
+    background-color: var(--bg-secondary) !important;
+}
+
+.btn-local-primary{
+    background-color: white;
+    color: var(--text-color-primary);
+}
+
+.btn-local-secondary{
+    background-color: var(--text-color-primary);
+    color: var(--bg-secondary);
+}
+
+.list-style{
+    list-style: none !important;
+}
+
+.list-style::before{
+    content: "†";
+    padding: 0 .8rem 0 0;
+}
+
+#animation{
+    animation: subeBaja 300ms ease infinite alternate;
+}
+
+@keyframes subeBaja{
+    0% {
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(0, -20px);
+    }
+}
+
+#regalo-icon{
+    animation: rotate .5s linear infinite;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(5deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-4deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.spin{
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

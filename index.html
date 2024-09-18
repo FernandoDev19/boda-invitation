@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <!-- Fotos de los novios -->
+      <header
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-duration="500"
+      >
+        <div class="w-100">
+          <img
+            decoding="async"
+            loading="lazy"
+            class="w-100"
+            src="assets/img/fotos-novios/header.webp"
+            alt="foto novios"
+          />
+        </div>
+      </header>
+
+      <main>
+        <div class="container py-3 mb-3">
+          <h1
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-duration="500"
+            class="fw-bold dancing-script text-center text-local-primary"
+            style="font-size: 2.5rem"
+          >
+            01 . 11 . 2024
+          </h1>
+          <div
+            data-aos="fade-left" 
+              data-aos-duration="800"
+            class="bg-local-secondary shadow rounded align-items-center gap-3 mt-5 py-3 px-4 w-100"
+          >
+            <div
+              data-aos="fade-up"
+              data-aos-delay="600"
+              data-aos-duration="800"
+              class="position-absolute rounded-pill p-1 bg-white"
+              style="transform: translate(0px, -50px) !important"
+            >
+              <img
+                id="foto-music-spin"
+                loading="lazy"
+                decoding="async"
+                class="rounded-pill"
+                src="assets/img/fotos-novios/portada-musica.webp"
+                alt="img for music"
+                height="70"
+                width="70"
+              />
+            </div>
+            <div
+              class="col-6 ms-auto me-4 d-flex justify-content-between gap-3"
+            >
+              <button class="btn">
+                <i class="text-local-primary fas fa-fast-backward"></i>
+              </button>
+              <button class="btn" id="playButton" onclick="togglePlay(true)">
+                <i class="text-local-primary fas fa-play"></i>
+              </button>
+              <button
+                class="btn d-none"
+                id="pauseButton"
+                onclick="togglePlay(false)"
+              >
+                <i class="text-local-primary fas fa-pause"></i>
+              </button>
+              <button class="btn">
+                <i class="text-local-primary fas fa-fast-forward"></i>
+              </button>
+            </div>
+            <audio id="audioElement">
+              <source src="assets/audio/musica.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+
+        <div class="w-100 bg-local-primary py-2" data-aos="zoom-in" data-aos-duration="800">
+          <h5
+            class="fs-5 text-center dancing-script mb-3 fw-bolder text-local-secondary"
+          >
+            Solo faltan
+          </h5>
+          <div class="d-flex justify-content-evenly">
+            <div id="contador-regresivo-days" class="d-flex flex-column">
+              <h2
+                id="days-number"
+                class="fs-5 text-center text-local-secondary"
+              >
+                
+              </h2>
+              <small class="text-center text-local-secondary">DIAS</small>
+            </div>
+            <div id="contador-regresivo-hours" class="d-flex flex-column">
+              <h2
+                id="hours-number"
+                class="fs-5 text-center text-local-secondary"
+              >
+                
+              </h2>
+              <small class="text-center text-local-secondary">HORAS</small>
+            </div>
+            <div id="contador-regresivo-minutes" class="d-flex flex-column">
+              <h2
+                id="minutes-number"
+                class="fs-5 text-center text-local-secondary"
+              >
+                
+              </h2>
+              <small class="text-center text-local-secondary">MINUTOS</small>
+            </div>
+            <div id="contador-regresivo-seconds" class="d-flex flex-column">
+              <h2
+                id="seconds-number"
+                class="fs-5 text-center text-local-secondary"
+              >
+                
+              </h2>
+              <small class="text-center text-local-secondary">SEGUNDOS</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-4">
+          <div class="mb-3">
+            <h1
+              class="dancing-script text-center fw-bold mb-3 text-local-primary"
+              style="font-size: 2rem" data-aos="zoom-in-up" data-aos-duration="800"
+            >
+              Estás invitado
+            </h1>
+            <div class="d-flex justify-content-center align-items-center p-3">
+              <img data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="100"
+                class="text-center w-100"
+                src="assets/img/circulo-flores.png"
+                alt="circulo hojas"
+              />
+              <h1 id="nombre-invitados" class="fs-2 text-local-primary z-2 dancing-script">
+                
+              </h1>
+            </div>
+          </div>
+
+          <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="800" data-aos-delay="200"
+            class="bg-local-primary rounded shadow mb-3 p-3 text-center"
+          >
+            <h1 class="fs-3 fw-bold dancing-script text-local-primary">
+              Queremos que nos acompañes
+            </h1>
+            <small class="text-local-primary">
+              El amor que ha crecido en nosotros desde la primera vez que nos
+              conocimos, nos ha llevado hoy a buscar en Dios la gracia para
+              formar una familia y un hogar santo, por esta razón despues de estos
+              años de noviazgo hemos decidido casarnos y compartir con las
+              personas mas especiales para nosotros, esta gran felicidad.
+            </small>
+          </div>
+        </div>
+
+        <div class="w-100 mb-3">
+          <h1
+            class="text-center fw-bold text-local-primary dancing-script"
+            style="font-size: 2.5rem" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200"
+          >
+            Nuestros momentos
+          </h1>
+          <div id="imagenesNoviosCarousel" class="carousel slide mb-3" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#imagenesNoviosCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#imagenesNoviosCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#imagenesNoviosCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#imagenesNoviosCarousel"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src="assets/img/fotos-novios/carousel-1.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src="assets/img/fotos-novios/carousel-2.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src="assets/img/fotos-novios/carousel-3.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src="assets/img/fotos-novios/carousel-4.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#imagenesNoviosCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#imagenesNoviosCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="container py-3 bg-local-primary">
+          <h1
+            class="mb-3 dancing-script fw-bold text-local-primary text-center"
+            style="font-size: 2rem" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200"
+          > 
+            Detalles de la boda
+          </h1>
+          <p class="fs-4 m-0 text-center text-local-primary fw-bold" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            Ceremonia
+          </p>
+          <div
+            class="d-flex justify-content-between align-items-end gap-3 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200"
+          >
+            <div class="d-flex flex-column justify-content-center align-items-center w-50">
+              <small class="fw-bold text-center text-local-primary mb-3">
+                07:00 p.m. La Casona Del Prado, 72-64 Carrera 56, Barranquilla/Atlántico
+              </small>
+              <a
+                href="https://maps.app.goo.gl/tmWcF14fW8qJb83X6" target="_blank"
+                class="btn btn-local-primary w-75"
+              >
+                <i class="fas fa-map-marker-alt"></i> Cómo llegar
+              </a>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center w-50">
+              <img src="assets/icons/iglesia.png" alt="Iglesia img" class="text-center mb-3" width="130px"/>
+              <a
+                href="https://waze.com/ul/hd3fy9feuj" target="_blank"
+                class="btn btn-local-primary w-75"
+              >
+                <i class="fas fa-map-marker-alt"></i> Cómo llegar
+              </a>
+            </div>
+          </div>
+
+          <p class="fs-4 mb-0 text-center text-local-primary fw-bold" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            Recepción
+          </p>
+          <div
+            class="d-flex justify-content-between align-items-end gap-3 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200"
+          >
+            <div class="d-flex flex-column justify-content-center align-items-center w-50">
+              <small class="fw-bold text-center text-local-primary mb-3">
+                08:00 p.m. La Casona Del Prado, 72-64 Carrera 56, Barranquilla/Atlántico
+              </small>
+              <a
+                href="https://maps.app.goo.gl/tmWcF14fW8qJb83X6" target="_blank"
+                class="btn btn-local-primary w-75"
+              >
+                <i class="fas fa-map-marker-alt"></i> Cómo llegar
+              </a>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center w-50">
+              <img src="assets/icons/brindis.png" alt="Brindis img" class="text-center mb-3" width="130px"/>
+              <a
+                href="https://waze.com/ul/hd3fy9feuj" target="_blank"
+                class="btn btn-local-primary w-75"
+              >
+                <i class="fas fa-map-marker-alt"></i> Cómo llegar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container d-flex flex-column align-items-center py-3">
+          <h1 data-aos="zoom-out" data-aos-duration="800"
+            class="dancing-script fw-bold text-local-primary text-center"
+            style="font-size: 2rem"
+          >
+            Código de vestimenta
+          </h1>
+          <img data-aos="zoom-out-up" data-aos-duration="800" src="assets/icons/codigo-vestimenta.png" alt="Vestidos img" class="text-center mb-3" width="150px"/>
+          <div class="d-flex justify-content-center gap-3 mb-3">
+            <div class="w-50">
+              <h1 class="fs-4 text-center text-local-primary">Mujeres</h1>
+              <p class="fs-4 text-center text-local-primary dancing-script" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                Vestido largo formal, reservar el color verde.
+              </p>
+            </div>
+            <div class="w-50">
+              <h1 class="fs-4 text-center text-local-primary">Hombres</h1>
+              <p class="fs-4 text-center text-local-primary dancing-script" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                Hombres Smoking formal negro con corbatín.
+              </p>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <a href="https://pin.it/4GnTjrVGf" target="_blank" class="btn btn-local-secondary text-nowrap" data-aos="zoom-out" data-aos-duration="800">
+              Mira algunas sugerencias aquí
+            </a>
+          </div>
+        </div>
+
+        <div class="container bg-local-primary py-3 px-3" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <h1
+            class="text-local-primary fw-bold text-center dancing-script mb-3"
+            style="font-size: 2rem"
+          >
+            Reglas de la boda
+          </h1>
+          <ul class="p-0 text-local-primary">
+            <li class="list-style">Esta boda la disfrutamos los adultos, los niños descansan en casa.</li> <br>
+            <li class="list-style">Prepárense para una boda llena de colores. Evita los colores blanco (mujeres) crema, verde o derivados en tu outfit.</li> <br>
+            <li class="list-style">No olvides llevar tu cambio de zapatos a tenis, queremos que disfrutes nuestra boda al máximo y sobretodo, que estés cómodo/a.</li> <br>
+          </ul>
+        </div>
+
+        <div class="py-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <h1
+            class="text-center text-local-primary dancing-script fw-bold"
+            style="font-size: 2rem"
+          >
+            Regalos
+          </h1>
+          <p class="fs-6 text-local-primary text-center mb-1">Lluvia de sobres</p>
+          <div class="d-flex justify-content-around">
+            <!-- <div>
+              <h1 class="text-center fw-bolder fs-5 text-local-primary">Nequi</h1>
+              <img class="text-center" src="assets/img/qr-nequi.jpg" alt="sobre img" height="120px" width="120px" />
+            </div>
+            <div>
+              <h1 class="text-center fw-bolder fs-5 text-local-primary">Bancolombia</h1>
+              <img class="text-center" src="assets/img/qr-bancolombia.jpg" alt="sobre img" height="120px" width="120px" />
+
+            </div> -->
+            <img id="regalo-icon" src="assets/icons/regalo.png" alt="Lluvia de sobres img" class="text-center" width="150px"/>
+          </div>
+        </div>
+
+        <div class="container bg-local-primary py-3" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <h1
+            class="fw-bold dancing-script text-local-primary text-center"
+            style="font-size: 2rem"
+          >
+            Ayúdanos
+          </h1>
+          <p class="text-local-primary mb-3 text-center">
+            ¡Ayúdanos para que nuestra boda sea inolvidable!
+          </p>
+          <p class="text-local-primary mb-3 text-center">
+            Agrega la música que deseas escuchar dando clic en el icono de
+            Spotify
+          </p>
+          <div class="d-flex justify-content-center">
+            <a href="https://open.spotify.com/playlist/57ZW7RxUduZmdmopcEeJsM?si=2EexXfSCST6527rJHg0l7g&pi=u-RAcN7NkLS5eB" class="btn">
+              <i
+                id="animation"
+                class="fab fa-spotify text-local-primary text-center"
+                style="font-size: 5rem"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="container py-4 d-flex flex-column align-items-center" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="200">
+          <h1
+            class="fw-bold dancing-script text-local-primary fw-bold text-center"
+            style="font-size: 2rem"
+          >
+            Confirma tu asistencia
+          </h1>
+          <a class="btn btn-local-secondary fw-bold" href="https://wa.me/573122078640?text=¡Hola!%20Quiero%20*confirmar%20la%20asistencia%20al%20matrimonio*%20de%20*Sheryn%20Gonzáles%20%26%20Nicson%20Galindo*.%20Mi%20nombre%20y%20apellido%20son: " target="_blank"
+            ><i class="fab fa-whatsapp"></i> Confirma tu asistencia</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="obtener-nombre.js" async defer></script>
+    <script src="cuenta-regresiva.js" async defer></script>
+    <script src="audio.js" async defer></script>
+    <script src="main.js" async defer></script>
+  </body>
+</html>
