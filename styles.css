@@ -15,6 +15,7 @@ body{
     background-color: var(--bg-body) !important;
     display: flex;
     justify-content: center;
+    overflow: auto !important;
 }
 
 .contenedor{
@@ -106,4 +107,22 @@ body{
     100%{
         transform: rotate(360deg);
     }
+}
+
+#playButton{
+    animation: pulse 600ms alternate-reverse infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.8);
+        opacity: .6;
+    }
+}
+
+body.modal-open {
+    overflow: auto !important;
 }
